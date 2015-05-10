@@ -43,3 +43,10 @@ group :development, :test do
   gem 'spring'
 end
 
+# 크롤링을 백그라운드에서 돌리기 위해 워커를 만듭니다.
+gem 'sidekiq'
+# HTTP 요청을 예쁘게 때려주는 녀석입니다.
+gem 'httparty'
+# 얘는 HTML 파서
+gem 'nokogiri'
+
