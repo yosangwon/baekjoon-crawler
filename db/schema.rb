@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510165041) do
+ActiveRecord::Schema.define(version: 20150510183358) do
 
   create_table "problems", force: :cascade do |t|
     t.integer  "code"
     t.string   "title"
     t.integer  "trial"
     t.integer  "success"
-    t.float    "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "percentage"
   end
 
 end
