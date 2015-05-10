@@ -15,8 +15,8 @@ class CrawlWorker
       problem = Problem.find_or_initialize_by code: parsed_problem[0].content.to_i
 
       problem.title = parsed_problem[1].content
-      problem.trial = parsed_problem[3].content.to_i
-      problem.success = parsed_problem[4].content.to_i
+      problem.success = parsed_problem[3].content.to_i
+      problem.trial = parsed_problem[4].content.to_i
       problem.percentage = parsed_problem[5].content.to_f
 
       problem.save!
