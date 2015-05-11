@@ -50,3 +50,7 @@ gem 'httparty'
 # 얘는 HTML 파서
 gem 'nokogiri'
 
+# 적당히 이쁘게 보이기는 부트스트랩이 최곱니다 하하호호
+gem "therubyracer"
+gem "less-rails" 
+gem "twitter-bootstrap-rails"
