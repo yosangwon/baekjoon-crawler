@@ -4,20 +4,20 @@ class ProblemsController < ApplicationController
   end
 
   def sort
-    sorting = if params[:sort] == 'asc'
+    @sorting = if params[:sort] == 'asc'
                 :asc
               else
                 :desc
               end
-    @problems = case params[:data]
+    @problems, @order= case params[:data]
                 when 'rate'
-                  Problem.order percentage: sorting, code: :asc
+                  [ Problem.order(percentage: @sorting, code: :asc), :percentage ]
                 when 'trial'
-                  Problem.order trial: sorting, code: :asc
+                  [ Problem.order(trial: @sorting, code: :asc), :trial ]
                 when 'success'
-                  Problem.order success: sorting, code: :asc
+                  [ Problem.order(success: @sorting, code: :asc), :success ]
                 else
-                  Problem.order code: :asc
+                  [ Problem.order(code: :asc), nil ]
                 end
     render :index
   end
