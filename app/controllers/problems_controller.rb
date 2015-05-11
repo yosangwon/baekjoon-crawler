@@ -21,4 +21,8 @@ class ProblemsController < ApplicationController
                 end
     render :index
   end
+
+  def crawl
+    CrawlWorker.perform_async(1)
+  end
 end
