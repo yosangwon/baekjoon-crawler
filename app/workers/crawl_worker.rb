@@ -23,9 +23,11 @@ class CrawlWorker
       logger.info "Inserted Problem ##{problem.code}"
     end
 
-    # 다음 Worker를 호출합니다. 아무것도 없는 경우 하지 않습니다.
-    if problems.length > 0
+    # 다음 Worker를 호출합니다. 마지막 페이지의 경우 호출하지 않습니다.
+    if parsed_html.css(".pagination li")[-1].content.strip.to_i > page
       CrawlWorker.perform_async page+1
+    else
+      logger.info "Crawling Finished! :-) at page #{page}"
     end
   end
 end
