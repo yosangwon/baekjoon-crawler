@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Title</th>
-      <th>Trial</th>
-      <th>Success</th>
-      <th>Percentage</th>
+      <th>문제 번호</th>
+      <th>제목</th>
+      <th>제출</th>
+      <th>정답</th>
+      <th>정답 비율</th>
     </tr>
   </thead>
 
@@ -20,7 +20,7 @@
         <td><%= problem.title %></td>
         <td><%= problem.trial %></td>
         <td><%= problem.success %></td>
-        <td><%= problem.percentage %></td>
+        <td><%= problem.percentage / 1000.0 %> %</td>
       </tr>
     <% end %>
   </tbody>

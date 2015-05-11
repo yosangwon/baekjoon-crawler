@@ -17,7 +17,7 @@ class CrawlWorker
       problem.title = parsed_problem[1].content
       problem.success = parsed_problem[3].content.to_i
       problem.trial = parsed_problem[4].content.to_i
-      problem.percentage = parsed_problem[5].content.to_f
+      problem.percentage = (parsed_problem[5].content.to_f * 1000).to_i
 
       problem.save!
       logger.info "Inserted Problem ##{problem.code}"

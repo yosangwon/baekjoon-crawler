@@ -15,7 +15,7 @@ class ChangePercentageOnProblems < ActiveRecord::Migration
     add_column :problems, :temp, :float
 
     Problem.find_each do |problem|
-      problem.temp = problem.percentage.to_f / 100
+      problem.temp = problem.percentage.to_f / 1000
       problem.save!
     end
 
