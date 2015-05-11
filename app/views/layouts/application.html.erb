@@ -7,8 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "온라인젓지 크롤러", root_path, class: "navbar-brand" %>
+    </div>
 
-<%= yield %>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">정렬 방식 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "많이 제출한 문제부터", "/trial/desc" %></li>
+            <li><%= link_to "적게 제출한 문제부터", "/trial/asc" %></li>
+            <li class="divider"></li>
+            <li><%= link_to "많이 성공한 문제부터", "/success/desc" %></li>
+            <li><%= link_to "적게 성공한 문제부터", "/success/asc" %></li>
+            <li class="divider"></li>
+            <li><%= link_to "정답률이 높은 문제부터", "/rate/desc" %></li>
+            <li><%= link_to "정답률이 낮은 문제부터", "/rate/asc" %></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

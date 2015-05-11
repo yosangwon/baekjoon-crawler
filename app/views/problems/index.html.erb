@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Problems</h1>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">문제 리스트</div>
+    <div class="panel-body">
+      <p>...</p>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>문제 번호</th>
+        <th>제목</th>
+        <th>제출</th>
+        <th>정답</th>
+        <th>정답 비율</th>
+        <th></th>
+      </tr>
+    </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>문제 번호</th>
-      <th>제목</th>
-      <th>제출</th>
-      <th>정답</th>
-      <th>정답 비율</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @problems.each do |problem| %>
+    <tbody>
+      <% @problems.each do |problem| %>
       <tr>
         <td><%= problem.code %></td>
         <td><%= problem.title %></td>
         <td><%= problem.trial %></td>
         <td><%= problem.success %></td>
         <td><%= problem.percentage / 1000.0 %> %</td>
+        <td><%= link_to "풀러 가기♬", "https://www.acmicpc.net/problem/#{problem.code}" %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <br>
