@@ -54,3 +54,6 @@ gem 'nokogiri'
 gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
+
+# 페이징
+gem 'kaminari'

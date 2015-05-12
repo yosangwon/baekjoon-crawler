@@ -1,9 +1,15 @@
 class ProblemsController < ApplicationController
   def index
-    @problems = Problem.order :code
+    redirect_to '/code/'
   end
 
   def sort
+    page = if params[:page]
+              params[:page].to_i
+           else
+             1
+           end
+
     @sorting = if params[:sort] == 'asc'
                 :asc
               else
@@ -11,13 +17,13 @@ class ProblemsController < ApplicationController
               end
     @problems, @order= case params[:data]
                 when 'rate'
-                  [ Problem.order(percentage: @sorting, code: :asc), :percentage ]
+                  [ Problem.order(percentage: @sorting, code: :asc).page(page), :percentage ]
                 when 'trial'
-                  [ Problem.order(trial: @sorting, code: :asc), :trial ]
+                  [ Problem.order(trial: @sorting, code: :asc).page(page), :trial ]
                 when 'success'
-                  [ Problem.order(success: @sorting, code: :asc), :success ]
+                  [ Problem.order(success: @sorting, code: :asc).page(page), :success ]
                 else
-                  [ Problem.order(code: :asc), nil ]
+                  [ Problem.order(code: :asc).page(page), nil ]
                 end
     render :index
   end
