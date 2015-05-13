@@ -12,3 +12,10 @@
     <li><%= link_to subfolder.name, folder_path(subfolder.slug) %></li>
 <% end %>
 </ul>
+
+<h2>이 폴더에 속한 문제</h2>
+<ul>
+  <% @folder.problems.each do |problem| %>
+    <li><%= problem.title %>(<%= problem.percentage / 1000.00 %>%)</li>
+  <% end %>
+</ul>
