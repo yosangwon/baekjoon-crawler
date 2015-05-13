@@ -1,0 +1,15 @@
+class Folder < ActiveRecord::Base
+  belongs_to :parent_folder, class_name: "Folder"
+  has_many :folders, class_name: "Folder", foreign_key: :parent_folder_id
+  validates :slug, uniqueness: true
+  validates :original_id, uniqueness: true
+
+  def parent_folders
+    parent_folders = []
+    folder = self
+    while ( folder = folder.parent_folder )
+      parent_folders.unshift folder
+    end
+    parent_folders
+  end
+end

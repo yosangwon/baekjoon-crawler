@@ -1,0 +1,14 @@
+<h1><%= @folder.name %></h1>
+<h2>상위 폴더</h2>
+<ul>
+  <% @folder.parent_folders.each do |parent_folder| %>
+    <li><%= link_to parent_folder.name, folder_path(parent_folder.slug) %></li>
+  <% end %>
+</ul>
+
+<h2>하위 폴더</h2>
+<ul>
+  <% @folder.folders.each do |subfolder| %>
+    <li><%= link_to subfolder.name, folder_path(subfolder.slug) %></li>
+<% end %>
+</ul>
