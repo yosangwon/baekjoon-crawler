@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513124219) do
+ActiveRecord::Schema.define(version: 20150513151315) do
 
   create_table "folders", force: :cascade do |t|
     t.string   "slug"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20150513124219) do
   add_index "folders", ["original_id"], name: "index_folders_on_original_id"
   add_index "folders", ["parent_folder_id"], name: "index_folders_on_parent_folder_id"
   add_index "folders", ["slug"], name: "index_folders_on_slug"
+
+  create_table "problem_folder_relations", force: :cascade do |t|
+    t.integer "problem_id"
+    t.integer "folder_id"
+  end
+
+  add_index "problem_folder_relations", ["folder_id"], name: "index_problem_folder_relations_on_folder_id"
+  add_index "problem_folder_relations", ["problem_id"], name: "index_problem_folder_relations_on_problem_id"
 
   create_table "problems", force: :cascade do |t|
     t.integer  "code"
