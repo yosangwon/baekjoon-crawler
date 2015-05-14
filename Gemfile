@@ -57,4 +57,6 @@ gem "twitter-bootstrap-rails"
 
 # 페이징
 gem 'kaminari'
+# 로마자 변환
+gem 'gimchi'
 gem 'sinatra', :require => nil
