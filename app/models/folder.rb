@@ -1,5 +1,5 @@
 class Folder < ActiveRecord::Base
-  has_many :problem_folder_relations, dependent: :destroy
+  has_many :problem_folder_relations, -> { order :number }, dependent: :destroy
   has_many :problems, through: :problem_folder_relations
   belongs_to :parent_folder, class_name: "Folder"
   has_many :folders, class_name: "Folder", foreign_key: :parent_folder_id
