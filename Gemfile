@@ -57,3 +57,4 @@ gem "twitter-bootstrap-rails"
 
 # 페이징
 gem 'kaminari'
+gem 'sinatra', :require => nil
