@@ -53,7 +53,8 @@ class FolderCrawlWorker
 
       ProblemFolderRelation.find_or_create_by(problem_id: problem.id, folder_id: folder.id) do |problem_folder_relationship|
         problem_folder_relationship.number = index
-        puts "문제 #{problem.id}를 폴더 #{folder.slug}에 저장 완료."
+        logger.info "문제 #{problem.id}를 폴더 #{folder.slug}에 저장 완료."
+        folder.update(type: :competition) if folder.type == :folder
       end
     end
   end

@@ -5,6 +5,8 @@ class Folder < ActiveRecord::Base
   has_many :folders, class_name: "Folder", foreign_key: :parent_folder_id
   validates :slug, uniqueness: true
   validates :original_id, uniqueness: true
+  enum type: [:normal, :competition]
+  self.inheritance_column = nil
 
   def parent_folders
     parent_folders = []
