@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slug: MyString
+  info: MyText
+  trial: 
+  success: 
+  fail: 
+
+two:
+  slug: MyString
+  info: MyText
+  trial: 
+  success: 
+  fail: 
