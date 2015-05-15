@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515152725) do
+ActiveRecord::Schema.define(version: 20150515160552) do
 
   create_table "baekjoon_users", force: :cascade do |t|
     t.string   "slug",       default: "0", null: false
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20150515152725) do
   end
 
   add_index "baekjoon_users", ["slug"], name: "index_baekjoon_users_on_slug"
+
+  create_table "folder_progresses", force: :cascade do |t|
+    t.integer  "status"
+    t.integer  "folder_id"
+    t.integer  "baekjoon_user_id"
+    t.integer  "progress"
+    t.integer  "total"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "folders", force: :cascade do |t|
     t.string   "slug"

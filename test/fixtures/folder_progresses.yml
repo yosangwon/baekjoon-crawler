@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  folder_id: 1
+  baekjoon_user_id: 1
+  progress: 1
+  total: 1
+
+two:
+  status: 1
+  folder_id: 1
+  baekjoon_user_id: 1
+  progress: 1
+  total: 1
