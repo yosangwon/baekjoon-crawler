@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515152641) do
+ActiveRecord::Schema.define(version: 20150515152725) do
 
   create_table "baekjoon_users", force: :cascade do |t|
     t.string   "slug",       default: "0", null: false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20150515152641) do
 
   add_index "problem_folder_relations", ["folder_id"], name: "index_problem_folder_relations_on_folder_id"
   add_index "problem_folder_relations", ["problem_id"], name: "index_problem_folder_relations_on_problem_id"
+
+  create_table "problem_solvings", force: :cascade do |t|
+    t.integer  "problem_id",       default: 0,     null: false
+    t.integer  "baekjoon_user_id", default: 0,     null: false
+    t.boolean  "solved",           default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "problem_solvings", ["baekjoon_user_id"], name: "index_problem_solvings_on_baekjoon_user_id"
+  add_index "problem_solvings", ["problem_id"], name: "index_problem_solvings_on_problem_id"
 
   create_table "problems", force: :cascade do |t|
     t.integer  "code"
