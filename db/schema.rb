@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515160552) do
+ActiveRecord::Schema.define(version: 20150517093335) do
 
   create_table "baekjoon_users", force: :cascade do |t|
-    t.string   "slug",       default: "0", null: false
+    t.string   "slug",         default: "0", null: false
     t.text     "info"
-    t.integer  "trial",      default: 0,   null: false
-    t.integer  "success",    default: 0,   null: false
-    t.integer  "fail",       default: 0,   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "trial",        default: 0,   null: false
+    t.integer  "success",      default: 0,   null: false
+    t.integer  "fail",         default: 0,   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "last_crawled"
   end
 
   add_index "baekjoon_users", ["slug"], name: "index_baekjoon_users_on_slug"
